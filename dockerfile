@@ -1,5 +1,5 @@
 FROM ubuntu:19.10
-MAINTAINER lll9p <lll9p.china@gmail.com>
+MAINTAINER lll9p laolilin.com <lll9p.china@gmail.com>
 
 RUN apt-get update  \
     && apt-get install -y locales curl wget \
