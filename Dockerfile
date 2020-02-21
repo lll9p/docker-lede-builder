@@ -1,5 +1,5 @@
 FROM debian:buster-slim
-MAINTAINER lll9p laolilin.com <lll9p.china@gmail.com>
+MAINTAINER lll9p <lll9p.china@gmail.com>
 
 ARG DEBIAN_FRONTEND=noninteractive
 
