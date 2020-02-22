@@ -1,0 +1,34 @@
+FROM alpine:latest
+MAINTAINER lll9p <lll9p.china@gmail.com>
+
+ENV LANG=en_US.UTF-8 \
+	LANGUAGE=en_US.UTF-8 \
+	LC_CTYPE=en_US.UTF-8 \
+	LC_ALL=en_US.UTF-8
+
+# install build packages
+RUN \
+    apk add --update --no-cache \
+    su-exec tini mc nano lzo lz4 dos2unix bash-completion htop tzdata \
+	intltool perl less bsd-compat-headers curl ca-certificates gnupg \
+	asciidoc bash bc binutils bzip2 cdrkit coreutils diffutils findutils flex g++ gawk gcc gettext git grep perl  python3-dev \
+	libxslt linux-headers make ncurses-dev patch python2-dev tar xz unzip util-linux wget zlib-dev \
+	&& apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community portablexdr-dev \
+	&& rm -rf /var/cache/apk/* \
+	&& git config --global user.email '<>' && \
+	&& git config --global user.name 'Docker Package Builder' \
+    && wget http://www.jbox.dk/downloads/edit.c && \
+	&& gcc -o /usr/local/bin/edit edit.c -Os && \
+	&& chmod 777 /usr/local/bin/edit && \
+	&& rm edit.c \
+    && groupadd -r build && useradd -r -g build build \
+    && passwd -d root \
+    && passwd -d build \
+    && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+    && sed -e 's~:/bin/ash$~:/bin/bash~' -i /etc/passwd
+
+USER build
+WORKDIR /home/build
+
+ENTRYPOINT ["/sbin/tini", "--"]
+CMD ["/bin/bash"]
