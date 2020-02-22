@@ -9,7 +9,7 @@ RUN apt-get update  \
     && groupadd -r build && useradd -r -u 1000 -g build build \
     && passwd -d root \
     && passwd -d build \
-    && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+    && echo '%build ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
