@@ -5,7 +5,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update  \
     && apt-get install -y locales curl wget \
-    && apt-get install -y -no-install-recommends build-essential \
+    && apt-get install -y --no-install-recommends build-essential \
     asciidoc binutils bzip2 gawk gettext git libncurses5-dev \
     libz-dev patch python3 unzip zlib1g-dev lib32gcc1 \
     libc6-dev-i386 subversion flex uglifyjs git-core \
