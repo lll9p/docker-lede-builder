@@ -14,8 +14,6 @@ RUN apt-get update  \
     automake libtool autopoint device-tree-compiler \
     proxychains4 sudo vim \
     && groupadd -r build && useradd -r -u 1000 -g build build \
-    && passwd -d root \
-    && passwd -d build \
     && echo '%build ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
