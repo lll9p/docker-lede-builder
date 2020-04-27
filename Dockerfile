@@ -7,11 +7,11 @@ RUN apt-get update  \
     && apt-get install -y --no-install-recommends locales curl wget \
     && apt-get install -y --no-install-recommends build-essential \
     asciidoc binutils bzip2 gawk gettext git libncurses5-dev \
-    libz-dev patch python3 unzip zlib1g-dev lib32gcc1 \
+    libz-dev patch python3 python3-setuptools unzip zlib1g-dev lib32gcc1 \
     libc6-dev-i386 subversion flex uglifyjs git-core \
     gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo \
     libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf \
-    automake libtool autopoint help2man  perl-modules rsync intltool device-tree-compiler g++-multilib linux-libc-dev-i386-cross ca-certificates \
+    automake libtool autopoint help2man time perl-modules rsync intltool device-tree-compiler g++-multilib linux-libc-dev-i386-cross ca-certificates \
     proxychains4 sudo vim \
     && groupadd -r build && useradd -r -u 1000 -g build build \
     && echo '%build ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
