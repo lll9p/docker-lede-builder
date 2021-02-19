@@ -15,6 +15,11 @@ RUN apt-get update  \
     intltool device-tree-compiler g++-multilib \
     linux-libc-dev-i386-cross ca-certificates \
     proxychains4 sudo vim \
+    make gcc g++ cpio curl wget nano xxd kmod \
+    pkgconfig rpcgen fakeroot ncurses bash patch \
+    bsd-compat-headers python2 python3 zlib-dev \
+    automake gettext gettext-dev autoconf bison \
+    flex coreutils cmake git libtool gawk sudo \
     && groupadd -r build && useradd -r -u 1000 -g build build \
     && echo '%build ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && apt-get clean \
