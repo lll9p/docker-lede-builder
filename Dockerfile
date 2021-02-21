@@ -17,7 +17,10 @@ RUN apt-get update  \
     proxychains4 sudo vim \
     && groupadd -r build && useradd -r -u 1000 -g build build \
     && echo '%build ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
-    && apt-get clean \
+    && apt-get -y purge manpages xauth \
+    && apt-get -y autoremove \
+    && apt-get -y autoclean \
+    && apt-get clean all \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
