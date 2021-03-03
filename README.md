@@ -1,5 +1,5 @@
 # docker-lede-builder
-build openwrt
+build openwrt and lede
 
 
 docker run --rm -it -v $(pwd)/data/docker:/home/build lll9p/docker-lede-builder
